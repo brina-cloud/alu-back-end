@@ -60,5 +60,6 @@ def main():
                 json_file.write("\n")
         json_file.write("]}\n")
 
+
 if __name__ == "__main__":
     main()

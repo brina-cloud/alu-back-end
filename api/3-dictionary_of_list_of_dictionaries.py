@@ -46,5 +46,6 @@ def main():
     with open(filename, mode="w", encoding="utf-8") as jsonfile:
         json.dump(all_tasks, jsonfile)
 
+
 if __name__ == "__main__":
     main()

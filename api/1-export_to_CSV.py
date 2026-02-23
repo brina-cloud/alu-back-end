@@ -50,8 +50,8 @@ def main():
                 f'"{employee_name}",'
                 f'"{task.get("completed")}",'
                 f'"{task.get("title")}"\n'
-            )   
-  
+            )
+
 
 if __name__ == "__main__":
     main()
