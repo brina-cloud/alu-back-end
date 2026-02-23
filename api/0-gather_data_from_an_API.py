@@ -20,9 +20,11 @@ if __name__ == "__main__":
         print("Error: Employee ID must be an integer.")
         sys.exit(1)
 
-    base_url = "https://jsonplaceholder.typicode.com"
+    user_url = "https://jsonplaceholder.typicode.com/users"
+    todos_url = "https://jsonplaceholder.typicode.com/todos"
 
-    user_response = requests.get("{}/users/{}".format(base_url, employee_id))
+
+    user_response = requests.get("{}/{}".format(user_url, employee_id))
     if user_response.status_code != 200:
         print("Error: Employee with ID {} not found.".format(employee_id))
         sys.exit(1)
@@ -30,8 +32,7 @@ if __name__ == "__main__":
     user = user_response.json()
     employee_name = user.get("username")
 
-    todos_response = requests.get(
-        "{}/todos".format(base_url), params={"userId": employee_id}
+    todos_response = requests.get("{}".format(todos_url), params={"userId": employee_id}
     )
     todos = todos_response.json()
 
