@@ -39,8 +39,8 @@ def main():
     todos = todos_resp.json()
 
     TOTAL_NUMBER_OF_TASKS = len(todos)
-    completed_tasks = [t for t in todos if t.get("completed") is True]
-    NUMBER_OF_DONE_TASKS = len(completed_tasks)
+    NUMBER_OF_DONE_TASKS = [t for t in todos if t.get("completed") is True]
+    NUMBER_OF_DONE_TASKS = len(NUMBER_OF_DONE_TASKS)
 
     # export to JSON
     filename = f"{employee_id}.json"

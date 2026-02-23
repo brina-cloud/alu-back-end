@@ -39,8 +39,8 @@ def main():
     todos = todos_resp.json()
 
     TOTAL_NUMBER_OF_TASKS = len(todos)
-    completed_tasks = [t for t in todos if t.get("completed") is True]
-    NUMBER_OF_DONE_TASKS = len(completed_tasks)
+    NUMBER_OF_DONE_TASKS = [t for t in todos if t.get("completed") is True]
+    NUMBER_OF_DONE_TASKS = len(NUMBER_OF_DONE_TASKS)
 
     # Output (EXACT format)
     print(
@@ -48,7 +48,7 @@ def main():
         f"with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):"
     )
 
-    for task in completed_tasks:
+    for task in NUMBER_OF_DONE_TASKS:
         print(f"\t {task.get('TASK_TITLE')}")
 
 
