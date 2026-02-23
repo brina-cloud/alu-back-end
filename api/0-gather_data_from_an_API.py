@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+""" """
 import requests
 import sys
 
 def get_employee_progress(employee_id):
+    """Fetch and display an employee's TODO list progress from JSONPlaceholder API."""
     base_url = "https://jsonplaceholder.typicode.com"
     
     try:
