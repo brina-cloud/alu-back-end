@@ -27,7 +27,8 @@ if __name__ == "__main__":
         print("Error: Employee with ID {} not found.".format(employee_id))
         sys.exit(1)
 
-    employee_name = user_response.json().get("name")
+    user = user_response.json()
+    employee_name = user.get("username")
 
     todos_response = requests.get(
         "{}/todos".format(base_url), params={"userId": employee_id}
@@ -35,7 +36,7 @@ if __name__ == "__main__":
     todos = todos_response.json()
 
     total_tasks = len(todos)
-    done_tasks = [task for task in todos if task.get("completed")]
+    done_tasks = [task for task in todos if task.get("completed") is True]
     number_of_done_tasks = len(done_tasks)
 
     print("Employee {} is done with tasks({}/{}):".format(
