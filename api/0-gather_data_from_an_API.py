@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" """
+"""
+Script that fetches and displays an employee's TODO list progress
+using the JSONPlaceholder REST API.
+Usage: python3 0-gather_data_from_an_API.py <employee_id>
+"""
 import requests
 import sys
 
