@@ -27,7 +27,7 @@ def main():
         sys.exit(1)
 
     user = user_resp.json()
-    employee_name = user.get("name")
+    EMPLOYEE_NAME = user.get("name")
 
     # Fetch todos
     todos_resp = requests.get(f"\
@@ -38,18 +38,18 @@ def main():
 
     todos = todos_resp.json()
 
-    total_tasks = len(todos)
+    TOTAL_NUMBER_OF_TASKS = len(todos)
     completed_tasks = [t for t in todos if t.get("completed") is True]
-    done_tasks = len(completed_tasks)
+    NUMBER_OF_DONE_TASKS = len(completed_tasks)
 
     filename = f"{employee_id}.csv"
     with open(filename, mode="w", encoding="utf-8") as csv_file:
         for task in todos:
             csv_file.write(
                 f'"{employee_id}",'
-                f'"{employee_name}",'
+                f'"{EMPLOYEE_NAME}",'
                 f'"{task.get("completed")}",'
-                f'"{task.get("title")}"\n'
+                f'"{task.get("TASK_TITLE")}"\n'
             )   
   
 

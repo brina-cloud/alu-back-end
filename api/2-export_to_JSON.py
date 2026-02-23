@@ -27,7 +27,7 @@ def main():
         sys.exit(1)
 
     user = user_resp.json()
-    employee_name = user.get("name")
+    EMPLOYEE_NAME = user.get("name")
 
     # Fetch todos
     todos_resp = requests.get(f"\
@@ -38,9 +38,9 @@ def main():
 
     todos = todos_resp.json()
 
-    total_tasks = len(todos)
+    TOTAL_NUMBER_OF_TASKS = len(todos)
     completed_tasks = [t for t in todos if t.get("completed") is True]
-    done_tasks = len(completed_tasks)
+    NUMBER_OF_DONE_TASKS = len(completed_tasks)
 
     # export to JSON
     filename = f"{employee_id}.json"
@@ -50,9 +50,9 @@ def main():
         )
         for i, task in enumerate(todos):
             json_file.write(
-                f'  {{"task": "{task.get("title")}", '
+                f'  {{"task": "{task.get("TASK_TITLE")}", '
                 f'"completed": {str(task.get("completed")).lower()}, '
-                f'"username": "{employee_name}"}}'
+                f'"username": "{EMPLOYEE_NAME}"}}'
             )
             if i < len(todos) - 1:
                 json_file.write(",\n")

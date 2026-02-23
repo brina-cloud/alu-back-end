@@ -27,7 +27,7 @@ def main():
         sys.exit(1)
 
     user = user_resp.json()
-    employee_name = user.get("name")
+    EMPLOYEE_NAME = user.get("name")
 
     # Fetch todos
     todos_resp = requests.get(f"\
@@ -38,18 +38,18 @@ def main():
 
     todos = todos_resp.json()
 
-    total_tasks = len(todos)
+    TOTAL_NUMBER_OF_TASKS = len(todos)
     completed_tasks = [t for t in todos if t.get("completed") is True]
-    done_tasks = len(completed_tasks)
+    NUMBER_OF_DONE_TASKS = len(completed_tasks)
 
     # Output (EXACT format)
     print(
-        f"Employee {employee_name} is done "
-        f"with tasks({done_tasks}/{total_tasks}):"
+        f"Employee {EMPLOYEE_NAME} is done "
+        f"with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):"
     )
 
     for task in completed_tasks:
-        print(f"\t {task.get('title')}")
+        print(f"\t {task.get('TASK_TITLE')}")
 
 
 if __name__ == "__main__":
